@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog UMKM - Platform Jual Beli Produk Lokal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-store"></i>
+                    <span>UMKM<span class="logo-highlight">Digital</span></span>
+                </a>
+                
+          
+                
+                <div class="nav-actions">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Cari produk...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="user-actions">
+                        <a href="login.html" class="btn-login" id="login-btn">
+                            <i class="fas fa-user"></i>
+                            <span>Masuk</span>
+                        </a>
+                        <a href="#" class="cart-icon" id="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </a>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-mobile-menu" id="close-mobile-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <a href="#beranda" class="mobile-nav-link active">Beranda</a>
+        <a href="#produk" class="mobile-nav-link">Produk</a>
+        <a href="#kategori" class="mobile-nav-link">Kategori</a>
+        <a href="#tentang" class="mobile-nav-link">Tentang</a>
+        <a href="#kontak" class="mobile-nav-link">Kontak</a>
+        <a href="login.html" class="mobile-nav-link">Masuk/Daftar</a>
+        <a href="admin.html" class="mobile-nav-link">Panel Admin</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="beranda">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">Temukan Produk UMKM Terbaik di Sekitarmu</h1>
+                    <p class="hero-description">Platform digital untuk membantu UMKM menjangkau pasar lebih luas dengan katalog produk yang menarik dan sistem transaksi yang aman.</p>
+                    <div class="hero-buttons">
+                        <a href="#produk" class="btn btn-primary">Jelajahi Produk</a>
+                        <a href="login.html" class="btn btn-secondary">Daftar UMKM</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Produk UMKM Lokal">
+                </div>
+            </section>
+
+            <!-- Search & Filter Section -->
+            <section class="filter-section">
+                <h2 class="section-title">Temukan Produk Favoritmu</h2>
+                
+                <div class="search-filter-container">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="main-search" placeholder="Cari produk berdasarkan nama, kategori, atau deskripsi...">
+                    </div>
+                    
+                    <div class="filter-options">
+                        <select id="category-filter">
+                            <option value="semua">Semua Kategori</option>
+                            <option value="makanan">Makanan & Minuman</option>
+                            <option value="kerajinan">Kerajinan Tangan</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="kecantikan">Kecantikan</option>
+                            <option value="rumah-tangga">Rumah Tangga</option>
+                        </select>
+                        
+                        <select id="price-filter">
+                            <option value="semua">Semua Harga</option>
+                            <option value="murah">Rp 0 - Rp 50.000</option>
+                            <option value="sedang">Rp 50.000 - Rp 200.000</option>
+                            <option value="tinggi">Rp 200.000+</option>
+                        </select>
+                        
+                        <select id="sort-filter">
+                            <option value="terbaru">Terbaru</option>
+                            <option value="termurah">Harga Terendah</option>
+                            <option value="termahal">Harga Tertinggi</option>
+                            <option value="terlaris">Terlaris</option>
+                        </select>
+                        
+                        <button id="reset-filters" class="btn btn-outline">Reset Filter</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Catalog Section -->
+            <section class="products-section" id="produk">
+                <h2 class="section-title">Katalog Produk UMKM</h2>
+                <p class="section-subtitle">Temukan berbagai produk unggulan dari pelaku UMKM di seluruh Indonesia</p>
+                
+                <div class="products-container" id="products-container">
+                    <!-- Products will be dynamically rendered here -->
+                </div>
+                
+                <div class="load-more-container">
+                    <button id="load-more" class="btn btn-primary">Muat Lebih Banyak Produk</button>
+                </div>
+            </section>
+
+            <!-- Categories Section -->
+            <section class="categories-section" id="kategori">
+                <h2 class="section-title">Kategori Produk</h2>
+                <p class="section-subtitle">Telusuri berdasarkan kategori favorit Anda</p>
+                
+                <div class="categories-container">
+                    <div class="category-card" data-category="makanan">
+                        <div class="category-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Makanan & Minuman</h3>
+                        <p>Kue, snack, minuman tradisional, dll.</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="kerajinan">
+                        <div class="category-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Kerajinan Tangan</h3>
+                        <p>Anyaman, ukiran, souvenir, dll.</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="fashion">
+                        <div class="category-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Fashion</h3>
+                        <p>Baju, aksesoris, tas, sepatu, dll.</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="kecantikan">
+                        <div class="category-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>Kecantikan</h3>
+                        <p>Kosmetik, skincare, aromaterapi, dll.</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="rumah-tangga">
+                        <div class="category-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Rumah Tangga</h3>
+                        <p>Dekorasi, furnitur, alat rumah, dll.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="tentang">
+                <div class="about-content">
+                    <h2 class="section-title">Tentang Platform UMKM Digital</h2>
+                    <p>Platform ini didedikasikan untuk membantu Usaha Mikro, Kecil, dan Menengah (UMKM) di Indonesia dalam memasarkan produk mereka secara digital. Kami menyediakan katalog produk yang menarik dengan fitur gambar dan video untuk menampilkan produk secara lebih interaktif.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Transaksi Aman</h3>
+                            <p>Dukungan berbagai metode pembayaran termasuk transfer bank dan payment gateway.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Analytics Dashboard</h3>
+                            <p>Pantau performa penjualan dan interaksi pengguna dengan produk Anda.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Responsif</h3>
+                            <p>Akses dari berbagai perangkat dengan tampilan yang optimal.</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <i class="fas fa-images"></i>
+                            <h3>Galeri Interaktif</h3>
+                            <p>Zoom gambar dan preview video untuk pengalaman berbelanja yang lebih baik.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Tentang UMKM Digital">
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section" id="kontak">
+                <h2 class="section-title">Hubungi Kami</h2>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Informasi Kontak</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Alamat</h4>
+                                <p>Jl. UMKM Digital No. 123, Jakarta Pusat, Indonesia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Telepon</h4>
+                                <p>(021) 1234-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@umkmdigital.id</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Jam Operasional</h4>
+                                <p>Senin - Jumat: 08.00 - 17.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Kirim Pesan</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <input type="text" placeholder="Nama Lengkap" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" placeholder="Alamat Email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" placeholder="Subjek" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-modal-header">
+                <h2>Keranjang Belanja</h2>
+                <button class="close-cart" id="close-cart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="cart-items-container" id="cart-items">
+                <!-- Cart items will be dynamically rendered here -->
+                <div class="empty-cart-message" id="empty-cart-message">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Keranjang belanja Anda kosong</p>
+                    <a href="#produk" class="btn btn-primary">Mulai Belanja</a>
+                </div>
+            </div>
+            
+            <div class="cart-summary" id="cart-summary">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-price" id="cart-total-price">Rp 0</span>
+                </div>
+                
+                <div class="cart-actions">
+                    <button class="btn btn-outline" id="clear-cart">Kosongkan Keranjang</button>
+                    <button class="btn btn-primary" id="checkout-btn">Lanjut ke Pembayaran</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="product-modal">
+        <div class="product-modal-content">
+            <!-- Product details will be dynamically rendered here -->
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="payment-modal">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h2>Pembayaran</h2>
+                <button class="close-payment" id="close-payment">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="payment-methods">
+                <h3>Pilih Metode Pembayaran</h3>
+                
+                <div class="payment-method-option">
+                    <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" checked>
+                    <label for="bank-transfer">
+                        <i class="fas fa-university"></i>
+                        <span>Transfer Bank</span>
+                    </label>
+                </div>
+                
+                <div class="payment-method-option">
+                    <input type="radio" id="midtrans" name="payment-method" value="midtrans">
+                    <label for="midtrans">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Midtrans (Kartu Kredit/Debit)</span>
+                    </label>
+                </div>
+                
+                <div class="bank-transfer-details" id="bank-transfer-details">
+                    <h4>Instruksi Transfer Bank</h4>
+                    <p>Silakan transfer ke rekening berikut:</p>
+                    <div class="bank-account">
+                        <p><strong>Bank:</strong> BCA (Bank Central Asia)</p>
+                        <p><strong>Nomor Rekening:</strong> 1234 5678 9012</p>
+                        <p><strong>Atas Nama:</strong> UMKM Digital Indonesia</p>
+                    </div>
+                    <p>Setelah melakukan transfer, harap konfirmasi melalui WhatsApp ke 0812-3456-7890 dengan menyertakan bukti transfer.</p>
+                </div>
+                
+                <div class="midtrans-details" id="midtrans-details" style="display: none;">
+                    <h4>Pembayaran via Midtrans</h4>
+                    <p>Anda akan diarahkan ke halaman pembayaran Midtrans yang aman untuk menyelesaikan transaksi.</p>
+                    <div class="payment-cards">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-discover"></i>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h4>Ringkasan Pesanan</h4>
+                    <div class="order-items" id="order-items">
+                        <!-- Order items will be dynamically rendered here -->
+                    </div>
+                    <div class="order-total">
+                        <span>Total Pembayaran:</span>
+                        <span class="order-total-price" id="order-total-price">Rp 0</span>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary btn-pay" id="process-payment">Proses Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-logo">
+                        <i class="fas fa-store"></i>
+                        UMKM<span class="logo-highlight">Digital</span>
+                    </h3>
+                    <p>Platform digital untuk membantu UMKM berkembang dengan jangkauan pasar yang lebih luas.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="#kategori">Kategori</a></li>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Bantuan & FAQ</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Cara Berjualan</a></li>
+                        <li><a href="admin.html">Panel Admin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <ul class="contact-info1">
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@umkmdigital.id</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 UMKM Digital. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
